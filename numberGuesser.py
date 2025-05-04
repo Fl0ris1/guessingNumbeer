@@ -12,7 +12,9 @@ def cmpNumber():
     while guess!=number and guess_count!=3:
         guess=num_input.get()
         guess=int(guess)
-        if guess>number:
+        if guess==number:
+            tkinter.messagebox.showinfo("You Won","You Won!!!")
+        elif guess>number:
             guess_count+=1
             remainingLives-=1
             tkinter.messagebox.showinfo("too high", f"Your guess is too high\nYou have {remainingLives} lives remaining")
@@ -23,14 +25,11 @@ def cmpNumber():
             remainingLives-=1
             tkinter.messagebox.showinfo("too low",f"Your guess is too low\nYou have {remainingLives} lives remaining")
             break
-        else:
-            tkinter.messagebox.showinfo("You Won","You Won!!!")
 
 def intro():
     name=name_input.get()
     tkinter.messagebox.showinfo("Instructions",f"Hi {name}, I am picking a number between 1-10. You need to guess that number with only 3 lives.")
     
-
 
 root=Tk()
 root.geometry("350x300")
